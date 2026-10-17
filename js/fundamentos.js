@@ -273,6 +273,164 @@ console.log(litrosRegistrados.length); // Muestra 4 ya que hay 4 elementos en el
 const herramientas = ["Pala", "Regadera", "Guantes"];
 herramientas.push("Rastrillo");
 console.log(herramientas.includes("Regadera"));
-console.log(herramientas[1]);
+console.log(herramientas[1]); // Muestra undefined ya que no hay un elemento en la posición 10
 herramientas.splice(0, 1);
 console.log(herramientas);
+
+//Recorrer un arreglo
+for (const herramienta of herramientas) {
+  console.log("Herramienta: " + herramienta);
+}
+
+let intentosEjemplo = 0;
+while (intentosEjemplo < 3) {
+  console.log("Intento " + (intentosEjemplo + 1));
+  intentosEjemplo++;
+}
+
+//ciclo paso a paso
+let diasObservados = [5, 10, 15];
+
+for (let posicion = 0; posicion < diasObservados.length; posicion++) {
+  console.log("Índice:", posicion, "Valor:", diasObservados[posicion]);
+}
+
+//variantes ciclo paso a paso 
+diasObservados = [5];
+
+for (let posicion = 0; posicion < diasObservados.length; posicion++) {
+  console.log("Índice:", posicion, "Valor:", diasObservados[posicion]);
+} // Muestra "Índice: 0 Valor: 5"
+
+diasObservados = [];
+for (let posicion = 0; posicion < diasObservados.length; posicion++) {
+  console.log("Índice:", posicion, "Valor:", diasObservados[posicion]);
+} // No muestra nada ya que el arreglo está vacío
+
+//Recorrido indicies o valores
+const cantidadesDePrueba = [4, 7, 2];
+
+for (let i = 0; i < cantidadesDePrueba.length; i++) {
+  console.log("Posición " + i + ": " + cantidadesDePrueba[i]);
+}
+
+for (const cantidad of cantidadesDePrueba) {
+  console.log("Cantidad: " + cantidad);
+}
+
+
+const medicionesDePrueba = [2, 4, 6];
+let sumaMediciones = 0;
+
+for (const medicion of medicionesDePrueba) {
+  sumaMediciones += medicion;
+}
+
+if (medicionesDePrueba.length === 0) {
+  console.log("No hay mediciones para promediar");
+} else {
+  console.log(sumaMediciones / medicionesDePrueba.length);
+}
+
+
+//actividad 1.4 
+// Crea un arreglo de cinco nombres de cultivos. Muestra el primero y el último usando length.
+const cultivos = ["Maíz", "Trigo", "Soja", "Arroz", "Tomate"];
+console.log("Primer cultivo:", cultivos[0]);
+console.log("Último cultivo:", cultivos[4]); // Muestra "Tomate" ya que es el último elemento del arreglo
+
+// Agrega un cultivo al final, elimina uno y comprueba la nueva longitud.
+cultivos.push("Cebolla"); // Agrega "Cebolla" al final del arreglo
+cultivos.splice(2, 1); // Elimina "Soja" del arreglo
+console.log("Nueva longitud:", cultivos.length); // Muestra 5 ya que ahora hay 5 elementos en el arreglo
+
+// Dado el arreglo [12, 8, 15, 5, 10], calcula la suma y el promedio mediante un ciclo. Comprueba: suma 50, promedio 10.
+const numeros = [12, 8, 15, 5, 10]; // Arreglo de números
+let suma = 0; 
+for (const numeritos of numeros) {
+  suma += numeritos;
+} // Suma los elementos del arreglo
+console.log("Suma:", suma);
+console.log("Promedio:", suma / numeros.length);
+
+// Cuenta cuántos valores de [2, 0, 3, 0, 1] representan existencias agotadas. Resultado esperado: 2.
+const existencias = [2, 0, 3, 0, 1];
+let agotadas = 0;
+for (const existencial of existencias) {
+  if (existencial === 0) {
+    agotadas++;
+  }
+}
+console.log("Existencias agotadas:", agotadas);
+
+// Recorre el arreglo ["Tomate", "Lechuga", "Maíz"] e imprime cada nombre precedido de su número de posición comenzando en 1.
+const verduras = ["Tomate", "Lechuga", "Maíz"];
+for (let i = 0; i < verduras.length; i++) {
+  console.log((i + 1) + ". " + verduras[i]);
+}
+
+// Modifica un ejercicio para trabajar con un arreglo vacío. ¿Qué sucede si intentas calcular el promedio dividiendo entre 0? Define qué debería mostrar tu solución en ese caso.
+const vacio = [];
+let sumaVacio = 0;
+for (const vaciovacio of vacio) {
+  sumaVacio += vaciovacio;
+}
+if (vacio.length === 0) {
+  console.log("No hay elementos para calcular el promedio");
+} else {
+  console.log("Promedio:", sumaVacio / vacio.length);
+}
+
+//Practica 1.5
+//Objetos y funciones
+//Objetos 
+const cultivoEjemplo = {
+  nombre: "Tomate",
+  dias: 85,
+  agua: 7,
+  estado: "cosecha"
+};
+
+console.log(cultivoEjemplo.nombre);
+console.log(cultivoEjemplo["agua"]);
+
+cultivoEjemplo.agua = 7.5;
+console.log(cultivoEjemplo.agua);
+
+//Arreglos y objetos
+const cultivosDeEjemplo = [
+  { nombre: "Tomate", dias: 85, agua: 7, estado: "cosecha" },
+  { nombre: "Lechuga", dias: 25, agua: 3, estado: "crecimiento" },
+  { nombre: "Zanahoria", dias: 5, agua: 2, estado: "semilla" }
+];
+
+for (const cultivo of cultivosDeEjemplo) {
+  console.log(cultivo.nombre + ": " + cultivo.estado);
+}
+
+//Funciones con parámetros y retorno
+function calcularAgua(aguaPorSemana, semanas) {
+  return aguaPorSemana * semanas;
+}
+
+const consumoTomate = calcularAgua(7, 4);
+console.log(consumoTomate);
+console.log(calcularAgua(3, 2));
+
+//Parametros, argumentos y resultado
+function saludarCultivo() {
+  console.log("Bienvenido al registro");
+}
+
+function mostrarNombreCultivo(nombre) {
+  console.log("Cultivo: " + nombre);
+}
+
+function calcularConsumo(aguaSemanal, numeroSemanas) {
+  return aguaSemanal * numeroSemanas;
+}
+
+saludarCultivo();
+mostrarNombreCultivo("Cilantro");
+const consumoCalculado = calcularConsumo(2.5, 4);
+console.log("Consumo:", consumoCalculado);
