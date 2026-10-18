@@ -457,9 +457,28 @@ console.log("Total a pagar: " + totalProducto);
 
 //Actividad 1.5
 //Añade al objeto cultivoEjemplo la propiedad responsable; cambia su estado e imprime una descripción actualizada.
+// Añadir la propiedad responsable
+cultivoEjemplo.responsable = "Jesus Tobos";
 
+// Cambiar el estado del cultivo
+cultivoEjemplo.estado = "Recolectado";
+
+// Imprimir la descripción actualizada
+console.log(
+  cultivoEjemplo.nombre + ": " +
+  cultivoEjemplo.estado 
+);
+
+console.log ("Responsable: " +
+  cultivoEjemplo.responsable)
 
 //Crea una función esCantidadValida(cantidad) que devuelva true solo para números finitos no negativos. Prueba con 0, 2.5, -1, NaN y Infinity. Investiga qué comprueba Number.isFinite().
+
+function esCantidadValida(cantidad) {
+  let contador=0;
+
+}
+
 //Crea una función contarPorEstado(lista, estadoBuscado) que recorra una lista de cultivos y devuelva cuántos tienen ese estado. Prueba el arreglo anterior: "cosecha" debe devolver 1 y "crecimiento" debe devolver 1.
 //Crea una función que calcule el promedio de agua semanal de una lista de cultivos. Define un resultado adecuado si la lista está vacía. Con los tres cultivos de ejemplo, el promedio es 4.
 //Diseña un arreglo de objetos para una situación distinta: tres productos de una tienda, con nombre, precio y existencias. Escribe una función que calcule el valor del inventario.
