@@ -474,10 +474,22 @@ console.log ("Responsable: " +
 
 //Crea una función esCantidadValida(cantidad) que devuelva true solo para números finitos no negativos. Prueba con 0, 2.5, -1, NaN y Infinity. Investiga qué comprueba Number.isFinite().
 
-function esCantidadValida(cantidad) {
-  let contador=0;
 
+function contarPorEstado(lista, estadoBuscado) {
+  let contador = 0;
+
+  for (const cultivosDeEjemplo of lista) {
+    if (cultivosDeEjemplo.estado === estadoBuscado) {
+      contador++;
+    }
+  }
+
+  return contador;
 }
+
+
+console.log(contarPorEstado(cultivosDeEjemplo, "cosecha")); // 1
+console.log(contarPorEstado(cultivosDeEjemplo, "semilla")); // 1
 
 //Crea una función contarPorEstado(lista, estadoBuscado) que recorra una lista de cultivos y devuelva cuántos tienen ese estado. Prueba el arreglo anterior: "cosecha" debe devolver 1 y "crecimiento" debe devolver 1.
 //Crea una función que calcule el promedio de agua semanal de una lista de cultivos. Define un resultado adecuado si la lista está vacía. Con los tres cultivos de ejemplo, el promedio es 4.
