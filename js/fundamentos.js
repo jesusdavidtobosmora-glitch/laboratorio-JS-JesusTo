@@ -365,6 +365,12 @@ for (let i = 0; i < verduras.length; i++) {
   console.log((i + 1) + ". " + verduras[i]);
 }
 
+const ajiaco = ["Papa", "Pollo", "Cilantro"]
+for (let i= 0 ; i< ajiaco.length; i++) {
+  console.log
+    ( "Numero " + (i+1) + ": " + ajiaco[i])
+}
+
 //Modifica un ejercicio para trabajar con un arreglo vacío. ¿Qué sucede si intentas calcular el promedio dividiendo entre 0? Define qué debería mostrar tu solución en ese caso.
 const vacio = [];
 let sumaVacio = 0;
@@ -435,7 +441,7 @@ console.log("Consumo:", consumoCalculado);
 const tipoDeUnidad = "litros";
 
 function describirRiego(cantidad) {
-  const mensajeLocal = (cantidad + " " + "Mililitros");
+  const mensajeLocal = (cantidad + " " + tipoDeUnidad);
   return mensajeLocal;
 }
 
@@ -468,11 +474,23 @@ console.log(
 console.log ("Responsable: " + cultivoEjemplo.responsable)
 
 //Crea una función esCantidadValida(cantidad) que devuelva true solo para números finitos no negativos. Prueba con 0, 2.5, -1, NaN y Infinity. Investiga qué comprueba Number.isFinite().
+function esCantidadValidad (cantidad) {
+  return Number.isFinite (cantidad) && cantidad >=0;
+}
+
+const Validado = esCantidadValidad (0.5)
+if (Validado)
+  console.log ("Cantidad valida")
+else 
+  console.log ("Cantidad no valida")
+console.log ()
+
+//Crea una función contarPorEstado(lista, estadoBuscado) que recorra una lista de cultivos y devuelva cuántos tienen ese estado. Prueba el arreglo anterior: "cosecha" debe devolver 1 y "crecimiento" debe devolver 1.
 function contarPorEstado(lista, estadoBuscado) {
   let contador = 0;
 
-  for (const cultivosDeEjemplo of lista) {
-    if (cultivosDeEjemplo.estado === estadoBuscado) {
+  for (const cultivos of lista) {
+    if (cultivos.estado === estadoBuscado) {
       contador++;
     }
   }
@@ -484,8 +502,44 @@ function contarPorEstado(lista, estadoBuscado) {
 console.log(contarPorEstado(cultivosDeEjemplo, "cosecha")); // 1
 console.log(contarPorEstado(cultivosDeEjemplo, "semilla")); // 1
 
-//Crea una función contarPorEstado(lista, estadoBuscado) que recorra una lista de cultivos y devuelva cuántos tienen ese estado. Prueba el arreglo anterior: "cosecha" debe devolver 1 y "crecimiento" debe devolver 1.
 //Crea una función que calcule el promedio de agua semanal de una lista de cultivos. Define un resultado adecuado si la lista está vacía. Con los tres cultivos de ejemplo, el promedio es 4.
-//Diseña un arreglo de objetos para una situación distinta: tres productos de una tienda, con nombre, precio y existencias. Escribe una función que calcule el valor del inventario.
-//Comprueba que cambiar el estado del primer cultivo no cambia el estado de los otros registros.
 
+function promedioAgua(lista) {
+  if (lista.length === 0) {
+    return 0;
+  }
+
+  let suma = 0;
+  for (const cultivo of lista) {
+    suma += cultivo.agua;
+  }
+
+  return suma / lista.length;
+}
+
+console.log(promedioAgua(cultivosDeEjemplo));
+console.log(promedioAgua([]));  
+
+
+//Diseña un arreglo de objetos para una situación distinta: tres productos de una tienda, con nombre, precio y existencias. Escribe una función que calcule el valor del inventario.
+
+const ProductosTienda = [
+  {nombre: "Militarito", Precio: 7500,Stock: 10},
+  {nombre: "Mono_Barril", Precio: 15000, Stock: 15},
+  {nombre: "Mouse_Falso", Precio: 8500, Stock: 7}
+];
+
+function valorInventario(lista) {
+  let total = 0;
+
+  for (const producto of lista) {
+    total += producto.Precio * producto.Stock;
+  }
+
+  return total;
+}
+
+console.log("El valor del inventario es: " + valorInventario(ProductosTienda));
+
+//Comprueba que cambiar el estado del primer cultivo no cambia el estado de los otros registros.
+cultivosDeEjemplo.
