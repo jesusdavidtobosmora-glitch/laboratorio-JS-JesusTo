@@ -9,3 +9,14 @@ anio.textContent = new Date().getFullYear();
 
 // Punto de partida: crea aquí tu arreglo de cultivos, funciones y eventos.
 // Revisa los criterios de la actividad integradora antes de empezar.
+
+//Practica 1.6
+//DOM Y Eventos
+const tituloCultivos = document.getElementById("cultivosTitulo");
+console.log(tituloCultivos.textContent);
+tituloCultivos.textContent = "Catálogo de EcoHuerta";
+
+//inspeccionar elementos
+console.log(document.getElementById("totalCultivos").textContent);
+console.log(document.querySelector("#cultivosTitulo").textContent);
+console.log(document.querySelector(".crop-card")?.textContent);

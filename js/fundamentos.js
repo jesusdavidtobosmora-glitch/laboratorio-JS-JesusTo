@@ -540,6 +540,3 @@ function valorInventario(lista) {
 }
 
 console.log("El valor del inventario es: " + valorInventario(ProductosTienda));
-
-//Comprueba que cambiar el estado del primer cultivo no cambia el estado de los otros registros.
-cultivosDeEjemplo.
